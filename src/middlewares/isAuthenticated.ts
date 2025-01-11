@@ -14,8 +14,10 @@ export function isAuthenticated(
   if (!authToken) return response.status(401).end();
   const [, token] = authToken.split(" ");
 
+  const SECRET_JWT = process.env.SECRET_JWT as string;
+
   try {
-    const { sub } = verify(token, process.env.SECRET_JWT) as Payload;
+    const { sub } = verify(token, SECRET_JWT) as Payload;
     request.user_id = sub;
     return next();
   } catch (error) {

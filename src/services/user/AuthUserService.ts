@@ -15,11 +15,11 @@ export class AuthUserService {
         email,
       },
     });
-    if (!user) throw new Error("user/password incorrect");
+    if (!user) throw new Error("Credenciais inválidas");
 
     const passwordMatch = await compare(password, user.password);
 
-    if (!passwordMatch) throw new Error("user/password incorrect");
+    if (!passwordMatch) throw new Error("Credenciais inválidas");
 
     const token = sign(
       {
@@ -37,6 +37,7 @@ export class AuthUserService {
       id: user.id,
       name: user.name,
       email: user.email,
+      avatar_url: user.avatar_url,
       token: token,
     };
   }

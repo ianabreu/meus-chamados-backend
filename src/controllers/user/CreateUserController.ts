@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { CreateUserService } from "../../services/user/CreateUserService";
-import { createUserSchema } from "../../schemas/user/createUserDTO";
+import { createUserSchema } from "../../schemas/user/CreateUserDTO";
 
 export class CreateUserController {
   async handle(request: Request, response: Response) {

@@ -7,6 +7,6 @@ const userRouter = Router();
 
 userRouter.post("/users", new CreateUserController().handle);
 userRouter.post("/session", new AuthUserController().handle);
-// userRouter.get("/me", isAuthenticated, DetailUserController.handle);
+userRouter.get("/me", isAuthenticated, new DetailUserController().handle);
 
 export { userRouter };

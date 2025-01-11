@@ -1,7 +1,7 @@
 import prismaClient from "../../prisma";
 
-const DetailUserService = {
-  execute: async (user_id: string) => {
+export class DetailUserService {
+  async execute(user_id: string) {
     const user = prismaClient.user.findFirst({
       where: {
         id: user_id,
@@ -10,9 +10,9 @@ const DetailUserService = {
         id: true,
         name: true,
         email: true,
+        avatar_url: true,
       },
     });
     return user;
-  },
-};
-export { DetailUserService };
+  }
+}
