@@ -10,7 +10,7 @@ export class DetailUserService {
         id: true,
         name: true,
         email: true,
-        avatar_url: true,
+        avatarUrl: true,
       },
     });
     return user;

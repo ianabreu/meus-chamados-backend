@@ -20,13 +20,14 @@ export class CreateUserService {
         name,
         email: emailLowerCase,
         password: passwordHash,
-        avatar_url: null,
+        avatarUrl: null,
+        avatarDeleteHash: null,
       },
       select: {
         id: true,
         name: true,
         email: true,
-        avatar_url: true,
+        avatarUrl: true,
       },
     });
     return user;
