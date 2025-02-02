@@ -3,6 +3,7 @@ import { isAuthenticated } from "../middlewares/isAuthenticated";
 import { CreateTicketController } from "../controllers/ticket/CreateTicketController";
 import { ListTicketController } from "../controllers/ticket/ListTicketController";
 import { GetTicketByIdController } from "../controllers/ticket/GetTicketByIdController";
+import { UpdateTicketController } from "../controllers/ticket/UpdateTicketController";
 const ticketRouter = Router();
 
 ticketRouter.post(
@@ -19,6 +20,11 @@ ticketRouter.get(
   "/tickets/:id",
   isAuthenticated,
   new GetTicketByIdController().handle
+);
+ticketRouter.put(
+  "/tickets/:id",
+  isAuthenticated,
+  new UpdateTicketController().handle
 );
 
 export { ticketRouter };
