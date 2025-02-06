@@ -10,6 +10,6 @@ export class UpdateTicketController {
     const updateTicketService = new UpdateTicketService();
     const ticket = await updateTicketService.execute({ ...data, ticketId });
 
-    return response.status(201).json(ticket);
+    return response.status(200).json(ticket);
   }
 }

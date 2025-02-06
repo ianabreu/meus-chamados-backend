@@ -10,7 +10,7 @@ export class CreateCustomerService {
     userId,
   }: CreateCustomerDTO & { userId: string }) {
     const alreadyExists = await prismaClient.customer.findUnique({
-      where: { cnpj },
+      where: { userId, cnpj },
     });
     if (alreadyExists) throw new Error("CNPJ já cadastrado.");
 

@@ -11,11 +11,17 @@ export class UpdateUserController {
     let name: string | undefined;
     let avatarBuffer: Buffer | undefined;
     let info: FileInfo | undefined;
+    let fileTypes = ["image/jpeg", "image/png"];
 
     bb.on("file", (fieldname: string, file: Readable, fileInfo: FileInfo) => {
       if (fieldname === "avatar") {
         const buffers: Buffer[] = [];
         info = fileInfo;
+        if (!fileTypes.includes(fileInfo.mimeType)) {
+          return response.status(400).json({
+            message: "Tipos de arquivos suportados: image/jpeg ou image/png",
+          });
+        }
 
         file.on("data", (data: Buffer) => {
           buffers.push(data);

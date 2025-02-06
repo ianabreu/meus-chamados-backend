@@ -21,6 +21,9 @@ export class UpdateTicketService {
     const ticket = await prismaClient.ticket.update({
       where: { id: ticketId },
       data: updateData,
+      include: {
+        customer: true,
+      },
     });
     return ticket;
   }
