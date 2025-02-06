@@ -28,6 +28,7 @@ npm install
 
 ### 3. Configurar Variáveis de Ambiente
 
+Gere um CLIENT_ID no site do [Imgur.com](https://imgur.com/account/settings/apps)
 Crie um arquivo `.env` na raiz do projeto e adicione as variáveis conforme necessário:
 
 ```env
@@ -49,12 +50,12 @@ npx prisma db push
 npm run dev
 ```
 
-A API estará disponível em `http://localhost:3333`
-
 ## 📖 Documentação
 
 A documentação completa da API pode ser acessada através do Postman:
 [Documentação da API](https://documenter.getpostman.com/view/37427895/2sAYX6ngQn)
+
+Também disponibilizo um ambiente de Produção para testes na documentação.
 
 ## 🛠 Funcionalidades
 
