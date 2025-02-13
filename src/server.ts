@@ -8,8 +8,22 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
+app.use((req, res, next) => {
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://my-tickets-rho.vercel.app"
+  );
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(204);
+  }
+
+  next();
+});
 app.use(cors());
-app.options("*", cors());
+
 app.use(router);
 app.use(
   (error: Error, request: Request, response: Response, next: NextFunction) => {
