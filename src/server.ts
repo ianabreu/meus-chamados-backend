@@ -9,6 +9,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.options("*", cors());
 app.use(router);
 app.use(
   (error: Error, request: Request, response: Response, next: NextFunction) => {
